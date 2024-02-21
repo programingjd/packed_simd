@@ -11,7 +11,7 @@ macro_rules! impl_fmt_debug_tests {
                     #[cfg_attr(target_arch = "wasm32", wasm_bindgen_test)]
                     fn debug() {
                         use arrayvec::{ArrayString,ArrayVec};
-                        type TinyString = ArrayString<[u8; 512]>;
+                        type TinyString = ArrayString<512>;
 
                         use crate::fmt::Write;
                         let v = $id::default();
@@ -22,7 +22,7 @@ macro_rules! impl_fmt_debug_tests {
                         write!(&mut beg, "{}(", stringify!($id)).unwrap();
                         assert!(s.starts_with(beg.as_str()));
                         assert!(s.ends_with(")"));
-                        let s: ArrayVec<[TinyString; 64]>
+                        let s: ArrayVec<TinyString, 64>
                             = s.replace(beg.as_str(), "")
                             .replace(")", "").split(",")
                             .map(|v| TinyString::from(v.trim()).unwrap())

@@ -236,7 +236,7 @@ macro_rules! impl_minimal_p {
                     #[cfg_attr(target_arch = "wasm32", wasm_bindgen_test)]
                     fn debug() {
                         use arrayvec::{ArrayString,ArrayVec};
-                        type TinyString = ArrayString<[u8; 512]>;
+                        type TinyString = ArrayString<512>;
 
                         use crate::fmt::Write;
                         let v = $id::<i32>::default();
@@ -250,7 +250,7 @@ macro_rules! impl_minimal_p {
                             "s = {} (should start with = {})", s, beg
                         );
                         assert!(s.ends_with(")"));
-                        let s: ArrayVec<[TinyString; 64]>
+                        let s: ArrayVec<TinyString, 64>
                             = s.replace(beg.as_str(), "")
                             .replace(")", "").split(",")
                             .map(|v| TinyString::from(v.trim()).unwrap())

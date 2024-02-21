@@ -216,7 +216,7 @@
     repr_simd,
     rustc_attrs,
     platform_intrinsics,
-    stdsimd,
+    portable_simd,
     arm_target_feature,
     link_llvm_intrinsics,
     core_intrinsics,

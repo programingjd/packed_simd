@@ -70,10 +70,12 @@ impl_i!([i128; 1]: i128x1, m128x1 | i128, u8 | test_v128 | x0 |
         From: /*i8x1, u8x1, i16x1, u16x1, i32x1, u32x1, i64x1, u64x1 */ | // FIXME: unary small vector types
         /// A 128-bit vector with 1 `i128` lane.
 );
+
 impl_u!([u128; 1]: u128x1, m128x1 | u128, u8 | test_v128 | x0 |
         From: /*u8x1, u16x1, u32x1, u64x1 */ | // FIXME: unary small vector types
         /// A 128-bit vector with 1 `u128` lane.
 );
+
 impl_m!([m128; 1]: m128x1 | i128, u8 | test_v128 | x0 |
         From: /*m8x1, m16x1, m32x1, m64x1 */ | // FIXME: unary small vector types
         /// A 128-bit vector mask with 1 `m128` lane.
